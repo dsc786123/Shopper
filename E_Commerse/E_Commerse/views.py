@@ -185,7 +185,7 @@ def register(request):
     
 
         print(name,email,password,mobile,address,pincode,city)
-        customer = Customer(name=name,email=email,mobile=mobile,address=address,pincode=pincode,city=city ,)
+        customer = Customer(name=name,email=email,mobile=mobile,address=address,pincode=pincode,city=city ,password=password)
         msg=""
         try:
             

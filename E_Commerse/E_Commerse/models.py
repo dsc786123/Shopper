@@ -22,29 +22,6 @@ class Customer(models.Model):
     date = models.DateTimeField('date published', default=timezone.now)
     forgot_password_token = models.CharField(max_length=200, default="")
 
-    def set_password(self, raw_password):
-        self.password = make_password(raw_password)
-
-    def check_password(self, raw_password):
-        return check_password(raw_password, self.password)
-
-    def save(self, *args, **kwargs):
-        if not self.pk:
-            self.set_password(self.password)
-        super().save(*args, **kwargs)
-
-        
-
-
-
-
-
-   
-
-    
-        
-
-
 
     def __str__(self):
         return "{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7},{8}".format(self.customer_id,self.name, self.email,self.password,self.mobile,self.address,self.status,self.role,self.date)
