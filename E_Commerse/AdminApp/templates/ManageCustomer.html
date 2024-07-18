@@ -1,0 +1,96 @@
+{% extends 'index.html' %}
+
+{% block Header %}
+<div id="top-bar" class="container">
+    <div class="row">
+        <div class="span4">
+            <span style="font-size: 22px;font-weight: bold;">
+                Welcome Admin
+            </span>
+        </div>
+        <div class="span8">
+            <div class="account pull-right">
+                <ul class="user-menu">
+                    <li><a href="{{curl}}ecommerseadmin/home/">Admin Home</a></li>
+                    <li><a href="{{curl}}ecommerseadmin/managecustomer/">Manage Customers</a></li>
+                    <li><a href="{{curl}}ecommerseadmin/addproduct/">Add Products</a></li>
+                    <li><a href="{{curl}}ecommerseadmin/addproductimage/">Add Product Image</a></li>
+                    <li><a href="{{curl}}ecommerseadmin/changepassword/">ChangePassword</a></li>
+                    <li><a href="{{curl}}ecommerseadmin/editprofile/">EditProfile</a></li>
+                    <li><a href="{{curl}}login/">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock Header %}
+
+{% block Category %}
+{% endblock Category %}
+
+{% block Banner %}
+{% endblock Banner %}
+
+{% block MainContent %}
+<section class="main-content">				
+        <div class="row">
+            <div class="span9">					
+                <h4 class="title"><span class="text">
+                    <strong>Manage&View</strong>Customer</span></h4>
+                <table class="table table-striped" style="font-size: 18px;" align="center">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Mobile</th>
+                            <th>Address</th>
+                            <th colspan=2>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for dic in customers %}
+                        <tr align="center">
+                            <td>
+                                {{dic.name}}
+                            </td>
+                            <td>{{dic.email}}</td>
+
+                            <td>
+                                {{dic.mobile}}
+                            </td>
+                            <td>
+                                {{dic.address}}
+                            </td>
+                            <!-- <td>
+                                {{dic.status}}
+                            </td> -->
+                            <td>
+                                {% if dic.status %}
+                                <a class="btn btn-sm btn-warning rounded py-2 px-4 text-white" href="{{curl}}ecommerseadmin/managecustomerstatus?id={{dic.customer_id}}&status={{dic.status}}">BLOCK</a>
+                                {% else %}
+                                <a class="btn btn-sm btn-success rounded py-2 px-4" href="{{curl}}ecommerseadmin/managecustomerstatus?id={{dic.customer_id}}&status={{dic.status}}">VERIFY</a>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a class="btn btn-sm btn-danger rounded py-2 px-4" href="{{curl}}ecommerseadmin/managecustomer/delete?id={{dic.customer_id}}">DELETE</a>    
+                            </td>
+                        </tr>
+                        {% endfor %}		  
+                    </tbody>
+                </table>
+                                
+                <!-- 
+                                <p class="buttons center">				
+                    <button class="btn" type="button">Update</button>
+                    <button class="btn" type="button">Continue</button>
+                    <button class="btn btn-inverse" type="submit" id="checkout">Checkout</button>
+                </p>					 
+                -->
+            </div>
+        </div>
+    </section>
+{% endblock MainContent %}
+
+{% block Client %}
+{% endblock Client %}

@@ -1,0 +1,121 @@
+{% extends 'index.html' %}
+
+{% block Header %}
+<div id="top-bar" class="container">
+    <div class="row">
+        <div class="span4">
+            <span style="font-size: 22px;font-weight: bold;">
+                Welcome Admin
+            </span>
+        </div>
+        <div class="span8">
+            <div class="account pull-right">
+                <ul class="user-menu">
+                    <li><a href="{{curl}}ecommerseadmin/home/">Admin Home</a></li>
+                    <li><a href="{{curl}}ecommerseadmin/addproduct/">Add Products</a></li>
+                    <li><a href="{{curl}}ecommerseadmin/addproductimage/">Add Product Image</a></li>
+                    <li><a href="{{curl}}ecommerseadmin/changepassword/">ChangePassword</a></li>
+                    <li><a href="{{curl}}ecommerseadmin/editprofile/">EditProfile</a></li>
+                    <li><a href="{{curl}}login/">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock Header %}
+
+{% block Category %}
+{% endblock Category %}
+
+{% block Banner %}
+<section class="main-content">
+    <div class="row">
+        <div style="text-align: center;">
+            <h3>{{msg}}</h3>
+            <h4 class="title"><span class="text"><strong>Add</strong> Product</span></h4>
+            <form action="#" method="post" class="form-stacked">
+                {% csrf_token %}
+                <fieldset>
+                    <div class="control-group">
+                        <label class="control-label">Product Brand</label>
+                        <div class="controls">
+                            <input type="text" placeholder="Enter Product Brand" 
+                            name="p_brand"
+                            class="input-xlarge">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Product Price:</label>
+                        <div class="controls">
+                            <input type="text" 
+                            name="p_price"
+                            placeholder="Enter Product Price" class="input-xlarge">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Product Old Price:</label>
+                        <div class="controls">
+                            <input type="text" placeholder="Enter Product Old Price" 
+                            name="p_old_price"
+                            class="input-xlarge">
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label">Product Discount:</label>
+                        <div class="controls">
+                            <input type="text" placeholder="Enter Product Discount" 
+                            name="p_discount"
+                            class="input-xlarge">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Product Size:</label>
+                        <div class="controls">
+                            <input type="text" placeholder="Enter Product Size" 
+                            name="p_size"
+                            class="input-xlarge">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Product Description:</label>
+                        <div class="controls">
+                            <textarea placeholder="Enter Product Description" rows="5" 
+                            name="p_description"
+                            class="input-xlarge"></textarea>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Product Qantity:</label>
+                        <div class="controls">
+                            <input type="number" 
+                            name="p_quantity"
+                            class="input-xlarge">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Product Availability:</label>
+                        <div class="controls">
+                            <input type="text" placeholder="Enter Product Availability" 
+                            name="p_availability"
+                            class="input-xlarge">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="actions"><input tabindex="9" class="btn btn-inverse large" type="submit"
+                            value="Add Product"></div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock Banner %}
+
+{% block MainContent %}
+{% endblock MainContent %}
+
+{% block Client %}
+{% endblock Client %}
+
+{% block Footer %}
+{% endblock Footer %}

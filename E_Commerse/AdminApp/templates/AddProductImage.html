@@ -1,0 +1,78 @@
+{% extends 'index.html' %}
+
+{% block Header %}
+<div id="top-bar" class="container">
+    <div class="row">
+        <div class="span4">
+            <span style="font-size: 22px;font-weight: bold;">
+                Welcome Admin
+            </span>
+        </div>
+        <div class="span8">
+            <div class="account pull-right">
+                <ul class="user-menu">
+                    <li><a href="{{curl}}ecommerseadmin/home/">Admin Home</a></li>
+                    <li><a href="{{curl}}ecommerseadmin/addproduct/">Add Products</a></li>
+                    <li><a href="{{curl}}ecommerseadmin/addproductimage/">Add Product Image</a></li>
+                    <li><a href="{{curl}}ecommerseadmin/changepassword/">ChangePassword</a></li>
+                    <li><a href="{{curl}}ecommerseadmin/editprofile/">EditProfile</a></li>
+                    <li><a href="{{curl}}login/">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock Header %}
+
+{% block Category %}
+{% endblock Category %}
+
+{% block Banner %}
+<section class="main-content">
+    <div class="row">
+        <div style="text-align: center;">
+            <h3>{{msg}}</h3>
+            <h4 class="title"><span class="text"><strong>Add</strong> Product Image</span></h4>
+            <form action="#" method="post" 
+            enctype="multipart/form-data"
+            class="form-stacked">
+                {% csrf_token %}
+                <fieldset>
+                    <div class="control-group">
+                        <label class="control-label">Product Image</label>
+                        <div class="controls">
+                            <input type="file"  
+                            multiple
+                            name="product_img"
+                            class="input-xlarge">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Product Id:</label>
+                        <div class="controls">
+                           <select name="product_id">
+                            <option>Select a Product</option>
+                            {% for dic in listofproduct %}
+                            <option value={{dic.product_id}}>{{dic.product_brand}}</option>
+                            {% endfor %}
+                           </select>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="actions"><input tabindex="9" class="btn btn-inverse large" type="submit"
+                            value="Add Product Images"></div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock Banner %}
+
+{% block MainContent %}
+{% endblock MainContent %}
+
+{% block Client %}
+{% endblock Client %}
+
+{% block Footer %}
+{% endblock Footer %}

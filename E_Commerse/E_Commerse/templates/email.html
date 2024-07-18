@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block MainContent %}
+<section class="main-content">
+    <div class="row">
+        <div style="text-align: center;">
+            <h3>{{msg}}</h3>
+            <h4 class="title"><span class="text"><strong>Sending </strong> Email</span></h4>
+            <form  method="post" class="form-stacked">
+                {% csrf_token %}
+                <fieldset>
+                    <div class="control-group">
+                        <label class="control-label">Email address:</label>
+                        <div class="controls">
+                            <input type="text" 
+                            name="email"
+                            placeholder="Enter your email" class="input-xlarge">
+                        </div>
+                    </div>
+                    <div class="actions"><input tabindex="9" class="btn btn-inverse large" type="submit"
+                            value="Send Email"></div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock MainContent %}

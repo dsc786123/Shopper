@@ -1,0 +1,95 @@
+{% extends 'index.html' %}
+
+{% block Header %}
+<div id="top-bar" class="container">
+    <div class="row">
+        <div class="span4">
+            <span style="font-size: 22px;font-weight: bold;">
+                Welcome Customer
+            </span>
+        </div>
+        <div class="span8">
+            <div class="account pull-right">
+                <ul class="user-menu">
+                    <li><a href="{{curl}}customer/home/">My Account</a></li>
+                    <li><a href="{{curl}}customer/cart/">Cart</a></li>
+                    <li><a href="{{curl}}customer/changepassword/">ChangePassword</a></li>
+                    <li><a href="{{curl}}customer/editprofile/">EditProfile</a></li>
+                    <li><a href="{{curl}}customer/logout/">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock Header %}
+
+{% block Banner %}
+{% endblock Banner %}
+
+{% block Category %}	
+{% endblock Category %}
+
+{% block MainContent%}
+<section class="main-content">
+	<div class="row">
+		<div class="span12">
+			<div class="row">
+				<div class="span12">
+					<h4 class="title">
+						<span class="pull-left"><span class="text"><span class="line">Feature
+									<strong>Products</strong></span></span></span>
+						<span class="pull-right">
+							<a class="left button" href="#myCarousel" data-slide="prev"></a><a class="right button"
+								href="#myCarousel" data-slide="next"></a>
+						</span>
+					</h4>
+					<div id="myCarousel" class="myCarousel carousel slide">
+						<div class="carousel-inner">
+							<div class="active item">
+								<ul class="thumbnails">
+
+									<!-- {% for imgdic in prod_images %}
+								<span>{{imgdic.product_img}}</span>===>
+								<span>{{imgdic.product_id}}</span><br>
+								{% endfor %} -->
+									{% for dic in order %}
+
+									<li class="span3">
+										<div class="product-box">
+											<span class="sale_tag"></span>
+											<p>
+												
+												<a href="{{curl}}customer/productdetails/?id={{dic.product_id}}">
+													<img src="{{media_url}}{{dic.product_img}}" />
+												</a>
+												
+
+											</p>
+
+											<a href="product_detail.html" class="title">{{dic.product_brand}}</a><br />
+											<a href="products.html" class="category">{{dic.product_description}}</a>
+											<p class="price">&#8377;{{dic.product_price}}</p>
+										</div>
+									</li>
+									{% endfor %}
+								</ul>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<br />
+		</div>
+	</div>
+</section>
+{% endblock MainContent%}
+
+{% block Client %}
+{% endblock Client %}
+
+{% block Footer %}
+{% endblock Footer %}
+
+
+

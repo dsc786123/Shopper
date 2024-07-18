@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+
+{% block Header %}
+<div id="top-bar" class="container">
+    <div class="row">
+        <div class="span4">
+            <span style="font-size: 22px;font-weight: bold;">
+                Welcome Customer
+            </span>
+        </div>
+        <div class="span8">
+            <div class="account pull-right">
+                <ul class="user-menu">
+                    <li><a href="{{curl}}customer/home/">My Account</a></li>
+                    <li><a href="{{curl}}customer/cart/">Cart</a></li>
+                    <li><a href="{{curl}}customer/changepassword/">ChangePassword</a></li>
+                    <li><a href="{{curl}}customer/editprofile/">EditProfile</a></li>
+                    <li><a href="{{curl}}customer/logout/">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock Header %}
+
+{% block Banner %}
+{% endblock Banner %}
+
+{% block Category %}	
+{% endblock Category %}
+
+{% block MainContent %}
+<section class="main-content">
+    <div class="row">
+        <div style="text-align: center;">
+            <h3>{{msg}}</h3>
+            <a href="{{curl}}customer/editprofile"><button class="btn btn-inverse" type="button" id="checkout">Back</button></a>
+        </div>
+    </div>
+</section>
+{% endblock MainContent %}
+
+{% block Client %}
+{% endblock Client %}
+
+{% block Footer %}
+{% endblock Footer %}
+
+
+

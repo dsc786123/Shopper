@@ -1,0 +1,58 @@
+{% extends 'index.html' %}
+
+{% block Header %}
+<div id="top-bar" class="container">
+    <div class="row">
+        <div class="span4">
+            <span style="font-size: 22px;font-weight: bold;">
+                Welcome Admin
+            </span>
+        </div>
+        <div class="span8">
+            <div class="account pull-right">
+                <ul class="user-menu">
+                    <li><a href="{{curl}}ecommerseadmin/home/">Admin Home</a></li>
+                    <li><a href="{{curl}}ecommerseadmin/managecustomer/">Manage Customers</a></li>
+                    <li><a href="{{curl}}ecommerseadmin/addproduct/">Add Products</a></li>
+                    <li><a href="{{curl}}ecommerseadmin/addproductimage/">Add Product Image</a></li>
+                    <li><a href="{{curl}}ecommerseadmin/changepassword/">ChangePassword</a></li>
+                    <li><a href="{{curl}}ecommerseadmin/editprofile/">EditProfile</a></li>
+                    <li><a href="{{curl}}login/">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock Header %}
+
+{% block Category %}
+<marquee scrollamount="20" direction="right">
+    <h3>Admin Details</h3>
+</marquee>
+<table border="1" align="center" cellpadding="10" cellspacing="0"
+style="font-size: 22px;"
+>
+    <tr>
+        {% for tup in data.items %}
+        <th>{{tup.0}}</th>
+        {% endfor%}
+    </tr>
+    <tr>
+        {% for tup in data.items %}
+        <td>{{tup.1}}</td>
+        {% endfor%}
+    </tr>
+</table>
+{% endblock Category %}
+
+{% block Banner %}
+{% endblock Banner %}
+
+{% block MainContent %}
+{% endblock MainContent %}
+
+{% block Client %}
+{% endblock Client %}
+
+{% block Footer %}
+{% endblock Footer %}

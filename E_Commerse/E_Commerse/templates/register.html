@@ -1,0 +1,77 @@
+{% extends 'index.html' %}
+
+{% block MainContent %}
+<section class="main-content">
+    <div class="row">
+        <div style="text-align: center;">
+            <h3>{{msg}}</h3>
+            <h4 class="title"><span class="text"><strong>Register</strong> Form</span></h4>
+            <form action="#" method="post" class="form-stacked">
+                {% csrf_token %}
+                <fieldset>
+                    <div class="control-group">
+                        <label class="control-label">Name</label>
+                        <div class="controls">
+                            <input type="text" placeholder="Enter your name" 
+                            name="name"
+                            class="input-xlarge">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Email address:</label>
+                        <div class="controls">
+                            <input type="text" 
+                            name="email"
+                            placeholder="Enter your email" class="input-xlarge">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Password:</label>
+                        <div class="controls">
+                            <input type="password" placeholder="Enter your password" 
+                            name="password"
+                            class="input-xlarge">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Address:</label>
+                        <div class="controls">
+                            <textarea placeholder="Enter a Address" rows="5" 
+                            name="address"
+                            class="input-xlarge"></textarea>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Mobile No:</label>
+                        <div class="controls">
+                            <input type="text" placeholder="Enter a mobile No" 
+                            name="mobile"
+                            class="input-xlarge">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">City:</label>
+                        <div class="controls">
+                            <input type="text" placeholder="Enter a City" 
+                            name="city"
+                            class="input-xlarge">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Pincode:</label>
+                        <div class="controls">
+                            <input type="text" placeholder="Enter a Pincode" 
+                            name="pincode"
+                            class="input-xlarge">
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="actions"><input tabindex="9" class="btn btn-inverse large" type="submit"
+                            value="Create your account"></div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock MainContent %}

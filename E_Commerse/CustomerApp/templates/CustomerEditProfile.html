@@ -1,0 +1,128 @@
+{% extends 'index.html' %}
+
+{% block Header %}
+<div id="top-bar" class="container">
+    <div class="row">
+        <div class="span4">
+            <span style="font-size: 22px;font-weight: bold;">
+                Welcome Customer
+            </span>
+        </div>
+        <div class="span8">
+            <div class="account pull-right">
+                <ul class="user-menu">
+                    <li><a href="{{curl}}customer/home/">My Account</a></li>
+                    <li><a href="{{curl}}customer/cart/">Cart</a></li>
+                    <li><a href="{{curl}}customer/changepassword/">ChangePassword</a></li>
+                    <li><a href="{{curl}}customer/editprofile/">EditProfile</a></li>
+                    <li><a href="{{curl}}customer/logout/">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock Header %}
+
+{% block Banner %}
+{% endblock Banner %}
+
+{% block Category %}	
+{% endblock Category %}
+
+{% block MainContent %}
+<section class="main-content">
+    <div class="row">
+        <div style="text-align: center;">
+            <h3>{{msg}}</h3>
+            <h4 class="title"><span class="text"><strong>Edit</strong> Profile</span></h4>
+            <form action="{{curl}}customer/editprofile/" method="post" class="form-stacked">
+                {% csrf_token %}
+                <fieldset>
+                    <input type="hidden" value="{{record.customer_id}}" name="customer_id"/>
+                    <div class="control-group">
+                        <label class="control-label">Name</label>
+                        <div class="controls">
+                            <input type="text" placeholder="Enter your name" 
+                            name="name"
+                            value="{{record.name}}"
+                            class="input-xlarge"
+                            required
+                            >
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Email address:</label>
+                        <div class="controls">
+                            <input type="text" 
+                            name="email"
+                            value={{record.email}}
+                            disabled
+                            placeholder="Enter your email" class="input-xlarge"
+                            
+                            >
+                        </div>
+                    </div>
+                   
+                    <div class="control-group">
+                        <label class="control-label">City:</label>
+                        <div class="controls">
+                            <input type="text"  placeholder="Enter a City" 
+                            name="city"
+                            value={{record.city}}
+                            class="input-xlarge"
+                            required
+                            ></textarea>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Pincode:</label>
+                        <div class="controls">
+                            <input type="text"  placeholder="Enter a Pincode" 
+                            name="pincode"
+                            value={{record.pincode}}
+                            class="input-xlarge"
+                            required
+                            ></textarea>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Address:</label>
+                        <div class="controls">
+                            <textarea placeholder="Enter a Address" rows="5" 
+                            name="address"
+                            class="input-xlarge"
+                            required
+                            >{{record.address}}</textarea>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Mobile No:</label>
+                        <div class="controls">
+                            <input type="text" placeholder="Enter a mobile No" 
+                            name="mobile"
+                            value={{record.mobile}}
+                            class="input-xlarge"
+                            required
+                            >
+                        </div>
+                    </div>
+                    
+
+                    <hr>
+                    <div class="actions"><input tabindex="9" class="btn btn-inverse large" type="submit"
+                            value="Update Profile"></div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock MainContent %}
+
+{% block Client %}
+{% endblock Client %}
+
+{% block Footer %}
+{% endblock Footer %}
+
+
+
